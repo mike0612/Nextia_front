@@ -47,6 +47,10 @@ export class LoginComponent {
     this.showRecoverModal = false;
   }
 
+
+  navigateToRegister(): void {
+    this.router.navigate(['/signup']);
+  }
   onRecoverSubmit(): void {
     if (this.recoverForm.valid) {
       this.authService.recoverPassword(this.recoverForm.value.email)
