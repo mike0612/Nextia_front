@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Iniciar Sesión</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" formControlName="password" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+  </form>
+
+  <button class="btn btn-link" (click)="openRecoverModal()">¿Olvidaste tu contraseña?</button>
+</div>
+
+<!-- Recover Password Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showRecoverModal}" (click)="closeRecoverModal()">
+  <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+    <div class="modal-content" >
+      <div class="modal-header" >
+        <h5 class="modal-title">Recuperar Contraseña</h5>
+        <button type="button" class="close" (click)="closeRecoverModal()">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="recoverForm" (ngSubmit)="onRecoverSubmit()">
+          <div class="form-group">
+            <label for="recoverEmail">Email</label>
+            <input type="email" id="recoverEmail" formControlName="email" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">Recuperar Contraseña</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
